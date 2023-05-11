@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from retrying import retry
 
 global advisorId
-advisorId = 295778
+advisorId = 1
 
 requests.adapters.DEFAULT_RETRIES = 15
 s = requests.session()
@@ -30,8 +30,6 @@ header_list = [
     {"User-Agent": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)"},
     {"User-Agent": "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.5; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15"},
 ]
-
-
 
 
 @retry(stop_max_attempt_number=10, wait_random_min=1000, wait_random_max=10000)
@@ -146,7 +144,7 @@ def crawl(pid, func):
 
 
 if __name__ == "__main__":
-    for pid in range(276143, 291062):
+    for pid in range(1, 291062):
         crawl(pid, s)
     # crawl(178330, s)
     # crawl(293245, s)
